@@ -6,6 +6,7 @@ using System.Diagnostics;
 
 namespace BulkyBookWeb.Areas.Customer.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -16,7 +17,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             _logger = logger;
             _unitOfWork = unitOfWork;
         }
-
+     
         public IActionResult Index()
         {
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
