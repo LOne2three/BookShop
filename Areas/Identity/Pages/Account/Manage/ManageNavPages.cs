@@ -3,6 +3,7 @@
 #nullable disable
 
 using System;
+using BookShop.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookShopWeb.Areas.Identity.Pages.Account.Manage
