@@ -1,11 +1,11 @@
-﻿using BulkyBook.Models;
-using Microsoft.AspNetCore.Mvc;
-using BulkyBookWeb.DataAccess;
-using BulkyBook.DataAccess.Repository.IRepository;
+﻿using Microsoft.AspNetCore.Mvc;
+using BookShop.DataAccess;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using BulkyBook.Models.ViewModels;
+using BookShop.Models.ViewModels;
+using BookShop.DataAccess.Repository.IRepository;
+using BookShop.Models;
 
-namespace BulkyBookWeb.Areas.Admin.Controllers
+namespace BookShopWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class CompanyController : Controller
@@ -17,7 +17,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         public CompanyController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-      
+
         }
 
         public IActionResult Index()
@@ -29,7 +29,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         public IActionResult Upsert(int? id)
         {
             Company company = new();
-           
+
             ViewBag.Id = id;
 
             if (id == null || id == 0)
@@ -40,7 +40,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             {
                 company = _unitOfWork.Company.GetFirstOrDefault(u => u.Id == id);
                 return View(company);
-            }        
+            }
         }
 
         //POST
@@ -84,7 +84,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
                 return Json(new { success = false, message = "Error while deleting" });
             }
-           
+
             _unitOfWork.Company.Remove(obj);
             _unitOfWork.Save();
             return Json(new { success = true, message = "Delete successful" });

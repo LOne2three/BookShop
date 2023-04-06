@@ -1,9 +1,9 @@
-﻿using BulkyBook.Models;
-using Microsoft.AspNetCore.Mvc;
-using BulkyBookWeb.DataAccess;
-using BulkyBook.DataAccess.Repository.IRepository;
+﻿using Microsoft.AspNetCore.Mvc;
+using BookShop.DataAccess;
+using BookShop.DataAccess.Repository.IRepository;
+using BookShop.Models;
 
-namespace BulkyBookWeb.Areas.Admin.Controllers
+namespace BookShopWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class CoverTypeController : Controller
@@ -63,7 +63,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(CoverType obj)
         {
-           
+
             if (ModelState.IsValid)
             {
                 _unitOfWork.CoverType.Update(obj);

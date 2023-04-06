@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BulkyBook.DataAccess\BulkyBook.DataAccess.csproj" />
-    <ProjectReference Include="..\BulkyBook.Utility\BulkyBook.Utility.csproj" />
+    <ProjectReference Include="..\BookShop.DataAccess\BookShop.DataAccess.csproj" />
+    <ProjectReference Include="..\BookShop.Utility\BookShop.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

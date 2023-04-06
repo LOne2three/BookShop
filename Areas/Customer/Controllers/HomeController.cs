@@ -1,10 +1,10 @@
-﻿using BulkyBook.DataAccess.Repository.IRepository;
-using BulkyBook.Models;
-using BulkyBook.Models.ViewModels;
+﻿using BookShop.DataAccess.Repository.IRepository;
+using BookShop.Models;
+using BookShop.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace BulkyBookWeb.Areas.Customer.Controllers
+namespace BookShopWeb.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class HomeController : Controller
@@ -17,7 +17,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             _logger = logger;
             _unitOfWork = unitOfWork;
         }
-     
+
         public IActionResult Index()
         {
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
@@ -27,10 +27,11 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
         public IActionResult Details(int id)
         {
             ShoppingCart cartobj = new()
-            {   Count = 1,
+            {
+                Count = 1,
                 Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,CoverType")
             };
-        
+
             return View(cartobj);
         }
 

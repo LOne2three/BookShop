@@ -1,12 +1,13 @@
-using BulkyBook.DataAccess.Repository;
-using BulkyBook.DataAccess.Repository.IRepository;
-using BulkyBookWeb.DataAccess;
-using BulkyBook.Models;
+using BookShop.DataAccess;
+using BookShop.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using BulkyBook.Utility;
+using BookShop.DataAccess.Repository;
+using BookShop.DataAccess.Repository.IRepository;
+using BookShop.DataAccess.Data;
+using BookShop.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
